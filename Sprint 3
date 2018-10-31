@@ -1,0 +1,78 @@
+""" Python program to check if family name of male
+     were the same using the user story sprint 1
+     Purpose:     Team Project - my contribution in sprint 1
+     Course:      SSW 555.
+     Programmer:  By Ogadinma Njoku
+
+"""
+
+import time
+
+
+class Family():
+    
+
+    def __init__(self, individual, families, birthday):
+        self.name = individual
+        self.surname = families
+        self.birthday = birthday
+
+    def last_names_family(self,individual, families):
+        
+        """ US01 - Checking Male last names if the same """
+        self.individual = individual
+        self.families = families
+        return_flag = True
+        error_type = "US01"
+
+        for family in familes:
+            males = []
+            for indiv in individuals:
+                if indiv.sex is "M" and (family.uid in individual.famc or
+                                         family.uid in individual.fams):
+                    males.append(indiv)
+                for m in males[:]:
+                    # checking all the males' last name.
+                    if list_surname(m) != list_surname(males[1]): # assume first name = 0, last name = 1
+                        if self.name not in self.families:
+                            raise ValueError("Unrecognised name")
+                        error_descrip = " Mismath! last name is  not the same"
+                        error_location = [husband.uid]
+                        report_error(error_type, error_descrip, error_location)
+                        return_flag = False
+                        return "{} {}".format (self.name, self.surname)
+        return return_flag
+
+
+def age_less_150(self,individuals):
+    
+    """  US07 - Age should be less than 150 years for deceased and alive
+         The program returns true if date of birth within the specified
+         period of 150 years, other wise false.
+    """
+    self.individual = individual
+    
+    return_flag = True
+    error_type = "US07"
+    # For each decesaded individual check age if age is over 150
+    for individual in individuals:
+        if individual.death and individual.birthday:
+            if individual.birthday + timedelta(days=366.00) < individual.death:
+                return birthday < (datetime.today() - timedelta(days = 366.00 * 150))
+    
+                error_descrip = "Individual dies over 150 years of age"
+                error_location = [individual.uid]
+                report_error(error_type, error_descrip, error_location)
+                return_flag = False
+
+    # For each living individual, check age
+    for individual in individuals:
+        if individual.death is None and individual.birthday:
+            if individual.birthday + timedelta(days=366.00) < datetime.now():
+                error_descrip = "Living Individual over 150 years old"
+                error_location = [individual.uid]
+                report_error(error_type, error_descrip, error_location)
+                return_flag = False
+    return return_flag
+
+
